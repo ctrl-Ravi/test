@@ -21,11 +21,11 @@ jobs:
         uses: actions/setup-python@v1-node16
         with:
           python-version: '3.7'
-      - name: Set output value
-        run: echo "MY_OUTPUT_VALUE=my-value" >> $GITHUB_ENV
+      - name: Save state
+        run: echo "{name}={value}" >> $GITHUB_STATE
 
-      - name: Use output value
-        run: echo ${{ env.MY_OUTPUT_VALUE }}          
+      - name: Set output
+        run: echo "{name}={value}" >> $GITHUB_OUTPUT          
 
       - name: Create and start virtual environment
         run: |
