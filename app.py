@@ -34,7 +34,9 @@ def index():
             for i in range(900,2000):
                 driver.execute_script(f"window.scrollTo(0, {i});")
             main_html= bs(driver.page_source, "html.parser")
-            
+        except Exception as e:
+            logging.basicConfig(filename="scrapper.log" , level=logging.INFO)
+            return "1st error"            
 
             video_link=[]
             thumbnail_link=[]
