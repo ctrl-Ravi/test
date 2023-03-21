@@ -24,6 +24,7 @@ def homepage():
 def index():
     if request.method == 'POST':
         try:
+            ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
             #searchString = request.form['content'].replace(" ","")
             driver = webdriver.Chrome(service=service_object)
             driver.maximize_window()
