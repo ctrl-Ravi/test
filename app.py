@@ -27,9 +27,9 @@ def index():
             searchString = request.form['content'].replace(" ","")
             driver = webdriver.Chrome(service=service_object)
             driver.maximize_window()
-            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
-            # main_link = driver.get(f"https://www.youtube.com/@PW-Foundation/videos")
-            main_link = driver.get(f"https://www.youtube.com/@{searchString}/videos")
+            #headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
+            main_link = driver.get(f"https://www.youtube.com/@PW-Foundation/videos")
+            #main_link = driver.get(f"https://www.youtube.com/@{searchString}/videos")
             time.sleep(4)
             for i in range(900,2000):
                 driver.execute_script(f"window.scrollTo(0, {i});")
@@ -69,7 +69,7 @@ def index():
             return render_template('result.html')
             
         except Exception as e:
-            logging.info(e)
+            logging.basicConfig(filename="scrapper.log" , level=logging.INFO)
             return "Please Enter valid username of channel"
 
 df = pd.read_csv('video_detail.csv')
