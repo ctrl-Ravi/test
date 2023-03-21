@@ -62,6 +62,7 @@ def index():
                     times.append(uplcaded_time)
                 except Exception as e:
                     logging.info(e)
+                    return "Facing error in 1st step to open chrome driver"
 
             driver.quit()
             df = pd.DataFrame({"title":video_titles,"Views":views,"Uploaded_time":times,"video_link":video_link,"thumbnail_link":thumbnail_link})
