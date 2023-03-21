@@ -24,12 +24,13 @@ def homepage():
 def index():
     if request.method == 'POST':
         try:
-            searchString = request.form['content'].replace(" ","")
+            #searchString = request.form['content'].replace(" ","")
             driver = webdriver.Chrome(service=service_object)
             driver.maximize_window()
+            searchString = request.form['content'].replace(" ","")
             #headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
-            main_link = driver.get(f"https://www.youtube.com/@PW-Foundation/videos")
-            #main_link = driver.get(f"https://www.youtube.com/@{searchString}/videos")
+            #main_link = driver.get(f"https://www.youtube.com/@PW-Foundation/videos")
+            main_link = driver.get(f"https://www.youtube.com/@{searchString}/videos")
             time.sleep(4)
             for i in range(900,2000):
                 driver.execute_script(f"window.scrollTo(0, {i});")
